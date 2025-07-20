@@ -11,7 +11,14 @@
 
   <!-- ─── TITLE + GLOBAL PROGRESS ───────────────────────── -->
   <div class="quiz-title">
-      <h2>Match the chord to its name</h2>
+      <div class="quiz-header">
+        <h2>Match the chord to its name</h2>
+        <div class="quiz-reset-container">
+          <button id="reset-progress-btn" class="reset-button" title="Reset Quiz Progress">
+            Reset Progress
+          </button>
+        </div>
+      </div>
       <div class="quiz-progress-text">
           Question {{ page_num }} of {{ total_pages }}
       </div>
@@ -45,8 +52,12 @@
           <div class="chord-diagram"
                id="{{ quiz_data.chord.id }}"
                data-answer="{{ quiz_data.chord.correctAnswer }}"
-               draggable="true">
-              <img src="{{ quiz_data.chord.image }}" alt="Chord diagram"
+               draggable="true"
+               role="img"
+               aria-label="Chord diagram for {{ quiz_data.chord.correctAnswer }} chord - drag to matching answer"
+               tabindex="0">
+              <img src="{{ quiz_data.chord.image }}" 
+                   alt="{{ quiz_data.chord.correctAnswer }} chord diagram showing finger positions"
                    class="chord-image">
               <div class="drag-hint">Drag me to the correct answer!</div>
           </div>
@@ -58,7 +69,10 @@
               {% for option in quiz_data.options %}
               <div class="chord-option"
                    id="option{{ loop.index }}"
-                   data-chord="{{ option }}">
+                   data-chord="{{ option }}"
+                   role="button"
+                   aria-label="Select {{ option }} chord by clicking or dropping here"
+                   tabindex="0">
                   <div class="chord-name">{{ option }}</div>
               </div>
               {% endfor %}
@@ -188,9 +202,11 @@ function setUpQuizInteractions () {
       processAnswer(opt.dataset.chord, $(opt));
     });
 
-    // Click fallback
+    // Click support for better accessibility and UX
     $(opt).on('click', () => {
-      if (!hasAnswered) processAnswer($(opt).data('chord'), $(opt));
+      if (!hasAnswered) {
+        processAnswer($(opt).data('chord'), $(opt));
+      }
     });
   });
 
@@ -209,6 +225,25 @@ function setUpQuizInteractions () {
       e.preventDefault();
       const href = $(this).attr('href');
       window.location.href = href + '?navigating_backward=true';
+    }
+  });
+
+  // Reset progress button
+  $('#reset-progress-btn').on('click', function() {
+    if (confirm('Are you sure you want to reset your quiz progress? This will clear all your progress and start over.')) {
+      // Clear localStorage
+      localStorage.removeItem('quizProgressPercent');
+      localStorage.removeItem('quizHighestPageReached');
+      
+      // Reset progress on server
+      $.post('/reset-progress')
+        .done(() => {
+          // Redirect to first question
+          window.location.href = '/quiz/1';
+        })
+        .fail(() => {
+          alert('Failed to reset progress. Please try again.');
+        });
     }
   });
 }

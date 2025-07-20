@@ -104,6 +104,21 @@ ChordTutor/
 
 Feel free to contribute to this project by submitting issues or pull requests.
 
+## Security & Production Considerations
+
+⚠️ **Before deploying to production:**
+
+1. **Set a secure secret key**: 
+   ```bash
+   export FLASK_SECRET_KEY="your-secure-random-key-here"
+   ```
+
+2. **Disable debug mode**: The app automatically disables debug in production
+
+3. **Use HTTPS**: Ensure your domain uses SSL/TLS encryption
+
+4. **Consider adding**: CSRF protection, rate limiting, and input validation for enhanced security
+
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
