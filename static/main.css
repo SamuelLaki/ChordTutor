@@ -95,17 +95,17 @@ body {
 .chord-reading-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 15px;
-    height: 100%;
+    padding: 10px 15px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 120px);
+    max-height: calc(100vh - 80px);
     overflow: hidden;
 }
 
 .chord-reading-title {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     flex-shrink: 0;
 }
 
@@ -375,19 +375,19 @@ body {
 .quiz-container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 15px;
-    height: 100%;
+    padding: 10px 15px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 120px);
+    max-height: calc(100vh - 80px);
     overflow: hidden;
 }
 
 .quiz-title {
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
-    padding: 8px 12px;
+    padding: 6px 10px;
     background-color: #f8f8f8;
     flex-shrink: 0;
 }
@@ -473,10 +473,10 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
-    margin-bottom: 10px;
+    padding-top: 20px;
     min-height: 0;
     overflow: hidden;
 }
@@ -484,7 +484,8 @@ body {
 .chord-diagram-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -494,10 +495,9 @@ body {
     height: 140px;
     border: 2px solid #ccc;
     padding: 8px;
-    padding-bottom: 25px;
     border-radius: 5px;
     background-color: #f9f9f9;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     cursor: move;
     transition: all 0.3s ease;
 }
@@ -509,15 +509,16 @@ body {
 
 .drag-hint {
     position: absolute;
-    bottom: 2px;
+    bottom: -25px;
     left: 0;
     right: 0;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     color: #666;
     font-style: italic;
     line-height: 1.2;
     padding: 0 2px;
+    white-space: nowrap;
 }
 
 .chord-image {
@@ -527,8 +528,9 @@ body {
 }
 
 .chord-options-container {
-    margin-top: 40px; /* Reduced space below diagram */
-    padding-bottom: 30px; /* Reduced padding */
+    margin-top: 20px;
+    padding-bottom: 10px;
+    flex-shrink: 0;
 }
 
 .chord-options {
@@ -606,12 +608,9 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
-    padding: 8px 15px;
-    position: sticky;
-    bottom: 0;
-    z-index: 50;
-    gap: 15px;
+    padding: 10px 15px;
     flex-shrink: 0;
+    gap: 15px;
 }
 
 .navigation-buttons a {
@@ -769,19 +768,17 @@ body {
 /* Responsive adjustments for both quiz and chord reading pages */
 @media (max-width: 768px) {
     .quiz-container, .chord-reading-container {
-        padding: 10px;
-        min-height: calc(100vh - 100px);
+        padding: 8px;
+        max-height: calc(100vh - 70px);
     }
     
     .quiz-title, .chord-reading-title {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     
     .quiz-title h2 {
         font-size: 20px;
     }
-    
-
     
     .chord-reading-title h1 {
         font-size: 24px;
@@ -789,7 +786,7 @@ body {
     
     .chord-reading-content {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
     
     .diagram-section, .legend-section {
@@ -798,14 +795,14 @@ body {
     }
     
     .chord-reading-image {
-        max-height: 40vh;
+        max-height: 35vh;
     }
     
     .chord-diagram {
         width: 120px;
         height: 120px;
         padding: 6px;
-        padding-bottom: 20px;
+        margin: 0 auto 25px auto;
     }
     
     .chord-options {
@@ -833,19 +830,22 @@ body {
         padding: 6px 12px;
         font-size: 14px;
     }
+    
+    .drag-hint {
+        bottom: -20px;
+        font-size: 10px;
+    }
 }
 
 @media (max-height: 700px) {
     .quiz-container, .chord-reading-container {
-        min-height: calc(100vh - 80px);
-        padding: 8px;
+        max-height: calc(100vh - 60px);
+        padding: 6px;
     }
     
     .quiz-title h2 {
         font-size: 18px;
     }
-    
-
     
     .chord-reading-title h1 {
         font-size: 22px;
@@ -855,7 +855,7 @@ body {
         width: 100px;
         height: 100px;
         padding: 4px;
-        padding-bottom: 18px;
+        margin: 0 auto 20px auto;
     }
     
     .chord-option {
@@ -868,12 +868,17 @@ body {
     }
     
     .chord-reading-image {
-        max-height: 45vh;
+        max-height: 40vh;
     }
     
     .chord-options-container {
-        margin-top: 15px;
-        padding-bottom: 10px;
+        margin-top: 10px;
+        padding-bottom: 5px;
+    }
+    
+    .drag-hint {
+        bottom: -18px;
+        font-size: 9px;
     }
 }
 
