@@ -40,15 +40,15 @@ ChordTutor is a Guitar Chord Learning web application designed to help users lea
 ```
 
 2. **Create a virtual environment (recommended):**
-```bash
-# On Windows
-python -m venv venv
-venv\Scripts\activate
-
-# On macOS/Linux
+   ```bash
+   # On macOS/Linux
    python3 -m venv venv
-source venv/bin/activate
-```
+   source venv/bin/activate
+
+   # On Windows
+   python -m venv venv
+   venv\Scripts\activate
+   ```
 
 3. **Install dependencies:**
 ```bash
