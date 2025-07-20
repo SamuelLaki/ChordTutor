@@ -39,13 +39,11 @@
   </div>
 
   <!-- navigation buttons -->
-  <div class="navigation-buttons">
-    <a href="{{ url_for('learn') }}" class="go-back-btn">
-      <div class="left-arrow-button left-arrow">Go Back</div>
-    </a>
-    <a href="{{ url_for('chord_detail', chord_id=1) }}" class="next-btn">
-      <div class="right-arrow-button right-arrow">Next</div>
-    </a>
+  <div class="chord-nav-buttons">
+    <a href="{{ url_for('learn') }}"
+       class="left-arrow-button left-arrow">Go Back</a>
+    <a href="{{ url_for('chord_detail', chord_id=1) }}"
+       class="right-arrow-button right-arrow">Next</a>
   </div>
 </div>   
 {% endblock %}

@@ -49,16 +49,18 @@
 
       <!-- Chord diagram -->
       <div class="chord-diagram-container">
-          <div class="chord-diagram"
-               id="{{ quiz_data.chord.id }}"
-               data-answer="{{ quiz_data.chord.correctAnswer }}"
-               draggable="true"
-               role="img"
-               aria-label="Chord diagram for {{ quiz_data.chord.correctAnswer }} chord - drag to matching answer"
-               tabindex="0">
-              <img src="{{ quiz_data.chord.image }}" 
-                   alt="{{ quiz_data.chord.correctAnswer }} chord diagram showing finger positions"
-                   class="chord-image">
+          <div>
+              <div class="chord-diagram"
+                   id="{{ quiz_data.chord.id }}"
+                   data-answer="{{ quiz_data.chord.correctAnswer }}"
+                   draggable="true"
+                   role="img"
+                   aria-label="Chord diagram for {{ quiz_data.chord.correctAnswer }} chord - drag to matching answer"
+                   tabindex="0">
+                  <img src="{{ quiz_data.chord.image }}" 
+                       alt="{{ quiz_data.chord.correctAnswer }} chord diagram showing finger positions"
+                       class="chord-image">
+              </div>
               <div class="drag-hint">Drag me to the correct answer!</div>
           </div>
       </div>
@@ -81,16 +83,13 @@
   </div>
 
   <!-- ─── NAVIGATION ─────────────────────────────────────── -->
-  <div class="navigation-buttons">
+  <div class="chord-nav-buttons">
       {% if page_num > 1 %}
       <a href="{{ url_for('quiz_page', page_num=page_num-1) }}"
-         class="go-back-btn">
-          <div class="left-arrow-button left-arrow">Previous</div>
-      </a>
+         class="left-arrow-button left-arrow">Previous</a>
       {% else %}
-      <a href="{{ url_for('learn') }}" class="go-back-btn">
-          <div class="left-arrow-button left-arrow">Go Back</div>
-      </a>
+      <a href="{{ url_for('learn') }}"
+         class="left-arrow-button left-arrow">Go Back</a>
       {% endif %}
 
       <div class="next-btn disabled">
