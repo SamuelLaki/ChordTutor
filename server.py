@@ -422,6 +422,8 @@ def reset_progress():
     session.clear()
     return jsonify({"status": "reset successful"}), 200
 
+# For Vercel deployment, the app object needs to be importable
+# The app will be started by index.py for Vercel or can be run directly for local development
 if __name__ == '__main__':
     # For production, set the FLASK_SECRET_KEY environment variable
     # and potentially turn off debug mode.

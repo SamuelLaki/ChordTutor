@@ -34,38 +34,38 @@ ChordTutor is a Guitar Chord Learning web application designed to help users lea
 ## Installation
 
 1. **Clone the repository:**
-   ```bash
+```bash
    git clone https://github.com/SamuelLaki/ChordTutor.git
    cd ChordTutor
-   ```
+```
 
 2. **Create a virtual environment (recommended):**
-   ```bash
-   # On Windows
-   python -m venv venv
-   venv\Scripts\activate
+```bash
+# On Windows
+python -m venv venv
+venv\Scripts\activate
 
-   # On macOS/Linux
+# On macOS/Linux
    python3 -m venv venv
-   source venv/bin/activate
-   ```
+source venv/bin/activate
+```
 
 3. **Install dependencies:**
-   ```bash
-   pip install flask
-   ```
+```bash
+pip install flask
+```
 
 ## Running the Application Locally
 
 1. **Start the Flask development server:**
-   ```bash
-   python server.py
-   ```
+```bash
+python server.py
+```
 
 2. **Open your web browser and navigate to:**
-   ```
-   http://127.0.0.1:5000/
-   ```
+```
+http://127.0.0.1:5000/
+```
 
 ## Project Structure
 
